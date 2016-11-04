@@ -8,11 +8,28 @@
         <a class="navbar-brand" href="#">Text Circle</a>
       </div> <!-- Nav container--> 
     </nav>
-    <div class="container top-margin"></div>
-	{{>editor}}
+    <div class="container top-margin">
+        <div class="row">
+        <div class="col-md-6 col-xs-12">
+            {{>editor}}
+        </div>
+        <div class="col-md-6 col-xs-12">
+            <!-- Preview -->
+            {{>viewer}}
+        </div>
+        </div>
+    </div>
+	
 </body>
 
 <template name="editor">
     <!-- Here we call the CodeMirror template, the docid is provided by a template helper-->
-    {{>sharejsCM docid=docid id="editor"}}
+    {{>sharejsCM docid=docid onRender=config id="editor"}}
+</template>
+
+<template name="viewer">
+    <!-- Here we call the CodeMirror template, the docid is provided by a template helper-->
+    <iframe id="viewer_iframe">
+        
+    </iframe>
 </template>
